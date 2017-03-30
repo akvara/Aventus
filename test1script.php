@@ -1,6 +1,6 @@
 <?php
 
-// 25 min
+// ~25 min
 
 define("CORNER", "+");
 define("VERTICAL", "|");
