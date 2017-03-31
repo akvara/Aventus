@@ -1,5 +1,6 @@
 <?php
 require('config.php');
+require('LoremIpsum.php');
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -36,11 +37,25 @@ CREATE TABLE IF NOT EXISTS
    );
 SQL;
 
-
 if ($conn->query($sql) === TRUE) {
     echo "Table $table created successfully". PHP_EOL;
 } else {
     echo "Error creating table: " . $conn->error . PHP_EOL;
+}
+
+$sql = "";
+
+for ($i = 0; $i < 36; $i++) {
+    $word = get_word();
+    $sentence = get_sentence();
+    $sql .= "INSERT INTO $table (`name`, `text`, `date`) VALUES ('$word', '$sentence', NOW());";
+
+}
+
+if ($conn->multi_query($sql) === TRUE) {
+    echo "New records created successfully";
+} else {
+    echo "Error: " . $sql . PHP_EOL . $conn->error;
 }
 
 $conn->close();

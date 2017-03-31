@@ -50,7 +50,8 @@ var load = function() {
             'action': 'count'
         },
         success: function (data, status) {
-            totalPages = Math.ceil(data / 3);
+            var params = jQuery.parseJSON(data);
+            totalPages = Math.ceil(params[0] / params[1]);
             if (currentPage > totalPages) currentPage = totalPages;
             goToPageNo(currentPage);
         },
@@ -106,7 +107,7 @@ var displayPage = function(data) {
         if(typeof item == 'object') {
             new_html += "<tr>";
             new_html += "  <td>" + item.name + "</td>";
-            new_html += "  <td>" + item.text + "</td>";
+            new_html += "  <td>" + limitLength(item.text) + "</td>";
             new_html += "  <td>" + item.date + "</td>";
             new_html += "  <td><button onclick='deleteItem(" + item.id + ")'>Delete</button></td>";
             new_html += "<tr>";
@@ -133,6 +134,13 @@ var displayPaginator = function() {
         $('#pages').html('');
     }
 };
+
+var limitLength = function (str) {
+    if (str.length > 70) {
+        return str.substr(0, 67) + "...";
+    }
+    return str;
+}
 
 $(function() {
     load();

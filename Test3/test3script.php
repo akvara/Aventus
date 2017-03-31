@@ -1,7 +1,5 @@
 <?php
 
-// ~40 min
-
 define("MIN_WEIGTH", 1);
 define("MAX_WEIGTH", 20000);
 define("NUMBER_OF_STONES", 50);

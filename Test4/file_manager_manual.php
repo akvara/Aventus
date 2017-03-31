@@ -1,15 +1,15 @@
 <?php 
-"dir_folder" = "dir_folder";
-"arg_postfix" = "arg_postfix";
-"arg_bool_recursive" = "arg_bool_recursive";
-"is_dir" = "is_dir";
-"permissions" = "permissions";
-"arg_depth" = "arg_depth";
-"callback" = "callback";
-"path" = "path";
-"arg_folder_name" = "arg_folder_name";
-"fs_entry" = "fs_entry";
-"bool_return" = "bool_return";
+${"GLOBALS"}["pvbgbpbcmgcy"] = "dir_folder";
+${"GLOBALS"}["olovxj"] = "arg_postfix";
+${"GLOBALS"}["ioejhteoygs"] = "arg_bool_recursive";
+${"GLOBALS"}["fpioefftsvff"] = "is_dir";
+${"GLOBALS"}["stscixisjp"] = "permissions";
+${"GLOBALS"}["celikdrjxdmv"] = "arg_depth";
+${"GLOBALS"}["ybyaijh"] = "callback";
+${"GLOBALS"}["yhdonrwdmkay"] = "path";
+${"GLOBALS"}["nfwsujpxgn"] = "arg_folder_name";
+${"GLOBALS"}["clokowrxyml"] = "fs_entry";
+${"GLOBALS"}["gdsqftago"] = "bool_return";
 
 interface exec_on_folder_callback {
     public function callback($path, $is_dir, $depth);
@@ -20,7 +20,7 @@ class FileManager {
 $varCallback = "callback";
         ${$varCallback} = new list_files_in_folder_callback();
 ${"GLOBALS"}["hrvbkty"] = "recursive";
-        $this->exec_on_folder(${"path"}, ${"callback"}, ${${"GLOBALS"}["hrvbkty"]});
+        $this->exec_on_folder(${${"GLOBALS"}["yhdonrwdmkay"]}, ${${"GLOBALS"}["ybyaijh"]}, ${${"GLOBALS"}["hrvbkty"]});
         return $callback->files;
     }
 
@@ -33,13 +33,13 @@ ${"GLOBALS"}["qhashhvorvh"] = "dir_folder";
         if (!${"arg_folder_name"}) return false;
         if (!file_exists(${$bwgpnts})) return false;
         $conyufofahj = "arg_folder_name";
-        if (!is_dir(${"arg_folder_name"})) return false;
+        if (!is_dir(${${"GLOBALS"}["nfwsujpxgn"]})) return false;
         if (${$zkermnguydc}
-            [strlen(${    "arg_folder_name"}) - 1] != "/") ${"arg_folder_name"}.= "/";
+            [strlen(${    ${"GLOBALS"}["nfwsujpxgn"]}) - 1] != "/") ${${"GLOBALS"}["nfwsujpxgn"]}.= "/";
         ${${"GLOBALS"}["qhashhvorvh"]} = opendir(${$conyufofahj});
-        while (${"fs_entry"} = readdir(${${"GLOBALS"}["rxtvcjdz"]})) {
+        while (${${"GLOBALS"}["clokowrxyml"]} = readdir(${${"GLOBALS"}["rxtvcjdz"]})) {
     ${"GLOBALS"}["wxiscmdtru"] = "fs_entry";
-            if (is_dir(${        "arg_folder_name"} . ${        ${"GLOBALS"}["wxiscmdtru"]})) {
+            if (is_dir(${        ${"GLOBALS"}["nfwsujpxgn"]} . ${        ${"GLOBALS"}["wxiscmdtru"]})) {
         ${"GLOBALS"}["ycrmegyhz"] = "arg_depth";
         ${"GLOBALS"}["djnmfkgei"] = "callback";
                 $ettnsfueq = "fs_entry";
@@ -47,24 +47,24 @@ ${"GLOBALS"}["qhashhvorvh"] = "dir_folder";
                 $kxgmndpzng = "arg_depth";
         ${"GLOBALS"}["mdonxogggfg"] = "callback";
         ${"GLOBALS"}["pohpjh"] = "arg_folder_name";
-                if (${$ettnsfueq} == "." || ${            "fs_entry"} == "..") {
+                if (${$ettnsfueq} == "." || ${            ${"GLOBALS"}["clokowrxyml"]} == "..") {
                     continue;
                 }
-                if (!${        "arg_postfix"}) call_user_func(array(&${        ${"GLOBALS"}["mdonxogggfg"]}, "callback"), ${            ${"GLOBALS"}["pohpjh"]} . ${            "fs_entry"}, true, ${        ${"GLOBALS"}["ycrmegyhz"]});
+                if (!${        ${"GLOBALS"}["olovxj"]}) call_user_func(array(&${        ${"GLOBALS"}["mdonxogggfg"]}, "callback"), ${            ${"GLOBALS"}["pohpjh"]} . ${            ${"GLOBALS"}["clokowrxyml"]}, true, ${        ${"GLOBALS"}["ycrmegyhz"]});
         ${"GLOBALS"}["bvjfcdaxpwm"] = "arg_folder_name";
                 $ekihii = "arg_postfix";
-                if (${        "arg_bool_recursive"}) $this->exec_on_folder(${            "arg_folder_name"} . ${            "fs_entry"}, ${$zhevbdng}, ${        "arg_bool_recursive"}, ${$kxgmndpzng} + 1, ${        "arg_postfix"});
-                if (${$ekihii}) call_user_func(array(&${        ${"GLOBALS"}["djnmfkgei"]}, "callback"), ${            ${"GLOBALS"}["bvjfcdaxpwm"]} . ${            "fs_entry"}, true, ${        "arg_depth"});
+                if (${        ${"GLOBALS"}["ioejhteoygs"]}) $this->exec_on_folder(${            ${"GLOBALS"}["nfwsujpxgn"]} . ${            ${"GLOBALS"}["clokowrxyml"]}, ${$zhevbdng}, ${        ${"GLOBALS"}["ioejhteoygs"]}, ${$kxgmndpzng} + 1, ${        ${"GLOBALS"}["olovxj"]});
+                if (${$ekihii}) call_user_func(array(&${        ${"GLOBALS"}["djnmfkgei"]}, "callback"), ${            ${"GLOBALS"}["bvjfcdaxpwm"]} . ${            ${"GLOBALS"}["clokowrxyml"]}, true, ${        ${"GLOBALS"}["celikdrjxdmv"]});
             } else {
-                call_user_func(array(&${        "callback"}, "callback"), ${            "arg_folder_name"} . ${            "fs_entry"}, false, ${        "arg_depth"});
+                call_user_func(array(&${        ${"GLOBALS"}["ybyaijh"]}, "callback"), ${            ${"GLOBALS"}["nfwsujpxgn"]} . ${            ${"GLOBALS"}["clokowrxyml"]}, false, ${        ${"GLOBALS"}["celikdrjxdmv"]});
             }
         }
-        closedir(${"dir_folder"});
+        closedir(${${"GLOBALS"}["pvbgbpbcmgcy"]});
         return true;
     }
 
     public function list_folders_in_folder($path, $recursive = false) {
-        ${"callback"} = new list_folders_in_folder_callback();
+        ${${"GLOBALS"}["ybyaijh"]} = new list_folders_in_folder_callback();
 ${"GLOBALS"}["vvobluxw"] = "callback";
 ${"GLOBALS"}["ktnrddubxy"] = "recursive";
 ${"GLOBALS"}["hznnsjrsdpj"] = "path";
@@ -73,30 +73,30 @@ ${"GLOBALS"}["hznnsjrsdpj"] = "path";
     }
     public function delete_folder($path) {
         $dcwsxtcjtyr = "bool_return";
-        ${"callback"} = new delete_folder_callback();
-        ${"bool_return"} = $this->exec_on_folder(${"path"}, ${"callback"}, true, 0, true);
+        ${${"GLOBALS"}["ybyaijh"]} = new delete_folder_callback();
+        ${${"GLOBALS"}["gdsqftago"]} = $this->exec_on_folder(${${"GLOBALS"}["yhdonrwdmkay"]}, ${${"GLOBALS"}["ybyaijh"]}, true, 0, true);
         if (${$dcwsxtcjtyr}) {
-            rmdir(${    "path"});
+            rmdir(${    ${"GLOBALS"}["yhdonrwdmkay"]});
         }
-        return ${"bool_return"};
+        return ${${"GLOBALS"}["gdsqftago"]};
     }
     public function empty_folder($path, $recursive = false) {
 ${"GLOBALS"}["dtshlbxw"] = "callback";
 ${"GLOBALS"}["grqhljjkkalt"] = "callback";
         $eyndklmmil = "recursive";
         ${${"GLOBALS"}["grqhljjkkalt"]} = new empty_folder_callback();
-        return $this->exec_on_folder(${"path"}, ${${"GLOBALS"}["dtshlbxw"]}, ${$eyndklmmil}, 0, true);
+        return $this->exec_on_folder(${${"GLOBALS"}["yhdonrwdmkay"]}, ${${"GLOBALS"}["dtshlbxw"]}, ${$eyndklmmil}, 0, true);
     }
     public function make_folder_writable($path) {
         $qgizpb = "path";
-        ${"callback"} = new make_folder_writable_callback();
-        return $this->exec_on_folder(${$qgizpb}, ${"callback"}, true);
+        ${${"GLOBALS"}["ybyaijh"]} = new make_folder_writable_callback();
+        return $this->exec_on_folder(${$qgizpb}, ${${"GLOBALS"}["ybyaijh"]}, true);
     }
     public function make_folder_readonly($path) {
 ${"GLOBALS"}["pbsjuge"] = "path";
 ${"GLOBALS"}["xfzicysvif"] = "callback";
         ${${"GLOBALS"}["xfzicysvif"]} = new make_folder_readonly_callback();
-        return $this->exec_on_folder(${${"GLOBALS"}["pbsjuge"]}, ${"callback"}, true);
+        return $this->exec_on_folder(${${"GLOBALS"}["pbsjuge"]}, ${${"GLOBALS"}["ybyaijh"]}, true);
     }
     public function chmod_files_in_folder($path, $permissions) {
 ${"GLOBALS"}["euylzvvmsufx"] = "callback";
@@ -104,13 +104,13 @@ ${"GLOBALS"}["euylzvvmsufx"] = "callback";
 ${"GLOBALS"}["oyojzufcrah"] = "path";
         $kflluouds = "permissions";
         $callback->permissions = ${$kflluouds};
-        return $this->exec_on_folder(${${"GLOBALS"}["oyojzufcrah"]}, ${"callback"}, true);
+        return $this->exec_on_folder(${${"GLOBALS"}["oyojzufcrah"]}, ${${"GLOBALS"}["ybyaijh"]}, true);
     }
     public function chmod_folders_in_folder($path, $permissions) {
 ${"GLOBALS"}["hccerqqks"] = "callback";
         ${${"GLOBALS"}["hccerqqks"]} = new chmod_folders_in_folder_callback();
         $zgvsjtb = "path";
-        $callback->permissions = ${"permissions"};
+        $callback->permissions = ${${"GLOBALS"}["stscixisjp"]};
         $dusgrxnl = "callback";
         return $this->exec_on_folder(${$zgvsjtb}, ${$dusgrxnl}, true);
     }
@@ -121,15 +121,15 @@ class list_files_in_folder_callback implements exec_on_folder_callback {
 ${"GLOBALS"}["rywqbnz"] = "is_dir";
         if (!${${"GLOBALS"}["rywqbnz"]}) {
 //            sleep(1);
-            $this->files[] = ${    "path"};
+            $this->files[] = ${    ${"GLOBALS"}["yhdonrwdmkay"]};
         }
     }
 }
 
 class list_folders_in_folder_callback implements exec_on_folder_callback {
     public function callback($path, $is_dir, $depth) {
-        if (${"is_dir"}) {
-            $this->folders[] = ${    "path"};
+        if (${${"GLOBALS"}["fpioefftsvff"]}) {
+            $this->folders[] = ${    ${"GLOBALS"}["yhdonrwdmkay"]};
         }
     }
 }
@@ -154,18 +154,18 @@ class empty_folder_callback implements exec_on_folder_callback {
             $foqkmpi = "path";
             rmdir(${$foqkmpi});
         } else {
-            unlink(${    "path"});
+            unlink(${    ${"GLOBALS"}["yhdonrwdmkay"]});
         }
     }
 }
 
 class make_folder_writable_callback implements exec_on_folder_callback {
     public function callback($path, $is_dir, $depth) {
-        if (${"is_dir"}) {
+        if (${${"GLOBALS"}["fpioefftsvff"]}) {
     ${"GLOBALS"}["bxbpfvo"] = "path";
             chmod(${    ${"GLOBALS"}["bxbpfvo"]}, 0777);
         } else {
-            chmod(${    "path"}, 0666);
+            chmod(${    ${"GLOBALS"}["yhdonrwdmkay"]}, 0666);
         }
     }
 }
@@ -174,7 +174,7 @@ class make_folder_readonly_callback implements exec_on_folder_callback {
     public function callback($path, $is_dir, $depth) {
 ${"GLOBALS"}["abfpimpyudwf"] = "is_dir";
         if (${${"GLOBALS"}["abfpimpyudwf"]}) {
-            chmod(${    "path"}, 0755);
+            chmod(${    ${"GLOBALS"}["yhdonrwdmkay"]}, 0755);
         } else {
             $cefslofqily = "path";
             chmod(${$cefslofqily}, 0644);

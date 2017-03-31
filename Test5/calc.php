@@ -1,9 +1,5 @@
 <?php
-$servername = "localhost";
-$database = "test5";
-$table = "auto_history";
-$username = "root";
-$password = "toor";
+require('config.php');
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);

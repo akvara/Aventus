@@ -30,11 +30,8 @@ body {
     font-weight: bold;
 }
 .input-name {
-    width: 20%;
+    width: 10%;
 }
 .input-comment {
     width: 60%;
-}
-.input-button {
-    width: 40%;
 }

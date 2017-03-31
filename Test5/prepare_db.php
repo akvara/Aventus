@@ -1,9 +1,5 @@
 <?php
-$servername = "localhost";
-$database = "test5";
-$table = "auto_history";
-$username = "root";
-$password = "toor";
+require('config.php');
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -54,7 +50,7 @@ SQL;
 if ($conn->multi_query($sql) === TRUE) {
     echo "New records created successfully";
 } else {
-    echo "Error: " . $sql . "<br>" . $conn->error;
+    echo "Error: " . $sql . PHP_EOL . $conn->error;
 }
 
 $conn->close();

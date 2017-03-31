@@ -1,7 +1,6 @@
 <?php
 $servername = "localhost";
-$database = "test6";
-$table = "comments";
+$database = "test5";
+$table = "auto_history";
 $username = "xxx";
 $password = "xxx";
-$per_page = 10;

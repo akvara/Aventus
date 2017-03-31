@@ -1,7 +1,5 @@
 <?php
 
-// ~25 min
-
 define("CORNER", "+");
 define("VERTICAL", "|");
 define("HORIZONTAL", "-");

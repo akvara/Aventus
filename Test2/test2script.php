@@ -1,7 +1,5 @@
 <?php
 
-// ~30 min
-
 define("THREE", "-THREE-");
 define("FIVE", "-FIVE-");
 define("FIFTEEN", "-FIFTEEN-");
