@@ -1,0 +1,1 @@
+mysqldump -u root -p test5 --skip-add-drop-table --skip-add-locks --skip-disable-keys --skip-set-charset
