@@ -1,0 +1,6 @@
+list_files_in_folder_callback had sleep(1).
+
+
+1) De-obfuscate file using script deobfuscate.php
+2) Make code pretty-formatted with IDE editor
+3)
