@@ -1,0 +1,40 @@
+@import url(http://fonts.googleapis.com/css?family=Della+Respira);
+
+html, body, div, span, h1, h2, p {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+    outline: none;
+    box-sizing: border-box;
+}
+html { overflow-y: scroll; }
+body {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    background: #e4e4e4 url('bg.png'); /* http://subtlepatterns.com/strange-bullseyes/ */
+    font-size: 62.5%;
+    line-height: 1;
+    margin: 22px 0;
+}
+.container {
+    font-family: 'Della Respira', 'Trebuchet MS', Tahoma, sans-serif;
+    color: #515151;
+}
+.messenger-error {
+    color: red;
+}
+.messenger-ok {
+    color: darkgreen;
+}
+.button-current-page {
+    font-weight: bold;
+}
+.input-name {
+    width: 20%;
+}
+.input-comment {
+    width: 60%;
+}
+.input-button {
+    width: 40%;
+}
