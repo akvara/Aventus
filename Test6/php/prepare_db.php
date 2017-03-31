@@ -1,9 +1,5 @@
 <?php
-$servername = "localhost";
-$database = "test6";
-$table = "comments";
-$username = "root";
-$password = "toor";
+require('config.php');
 
 // Create connection
 $conn = new mysqli($servername, $username, $password);
@@ -13,6 +9,8 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 echo "Connected successfully" . PHP_EOL;
+
+$conn->query("DROP DATABASE $database");
 
 // Select DB
 
@@ -28,7 +26,16 @@ if (!$conn->select_db($database)) {
 }
 
 // sql to create table
-$sql = "CREATE TABLE IF NOT EXISTS $table (`name` VARCHAR(20), `text` TEXT NOT NULL, `date` DATETIME)";
+$sql = <<<SQL
+CREATE TABLE IF NOT EXISTS 
+  $table 
+  (`id` INT AUTO_INCREMENT primary key NOT NULL, 
+   `name` VARCHAR(20), 
+   `text` TEXT NOT NULL, 
+   `date` DATETIME 
+   );
+SQL;
+
 
 if ($conn->query($sql) === TRUE) {
     echo "Table $table created successfully". PHP_EOL;

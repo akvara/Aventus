@@ -51,8 +51,8 @@ var load = function() {
         },
         success: function (data, status) {
             totalPages = Math.ceil(data / 3);
-            displayPaginator();
-            pageNo(currentPage);
+            if (currentPage > totalPages) currentPage = totalPages;
+            goToPageNo(currentPage);
         },
         error: function (xhr, desc, err) {
             console.log(xhr);
@@ -61,7 +61,7 @@ var load = function() {
     }); // end ajax call
 };
 
-var pageNo = function (page) {
+var goToPageNo = function (page) {
     currentPage = page;
     $.ajax({
         url: 'php/ajax-get.php',
@@ -79,7 +79,24 @@ var pageNo = function (page) {
             console.log("Details: " + desc + "\nError:" + err);
         }
     }); // end ajax call
-    console.log("pageNo", currentPage);
+};
+
+var deleteItem = function (id) {
+    $.ajax({
+        url: 'php/ajax-post.php',
+        type: 'post',
+        data: {
+            'action': 'delete',
+            'id': id
+        },
+        success: function(data, status) {
+            load();
+        },
+        error: function (xhr, desc, err) {
+            console.log(xhr);
+            console.log("Details: " + desc + "\nError:" + err);
+        }
+    }); // end ajax call
 };
 
 var displayPage = function(data) {
@@ -87,7 +104,12 @@ var displayPage = function(data) {
     var new_html = "";
     $.each(result, function(i, item) {
         if(typeof item == 'object') {
-            new_html += "<tr><td>" + item.name + "</td><td>" + item.text + "</td><td>" + item.date + "</td></tr>";
+            new_html += "<tr>";
+            new_html += "  <td>" + item.name + "</td>";
+            new_html += "  <td>" + item.text + "</td>";
+            new_html += "  <td>" + item.date + "</td>";
+            new_html += "  <td><button onclick='deleteItem(" + item.id + ")'>Delete</button></td>";
+            new_html += "<tr>";
         }
         else {
             return false;
@@ -100,14 +122,15 @@ var displayPaginator = function() {
     if (totalPages > 1) {
         var new_html = "Pages: ";
         for (var i = 1; i<= totalPages; i++) {
-            console.log("wtf", i, currentPage);
             if (i === currentPage) {
                 new_html += "&nbsp;" + i + "&nbsp;";
             } else {
-                new_html += "<button onclick='pageNo(" + i + ")'>" + i + "</button>" ;
+                new_html += "<button onclick='goToPageNo(" + i + ")'>" + i + "</button>" ;
             }
         }
         $('#pages').html(new_html);
+    } else {
+        $('#pages').html('');
     }
 };
 

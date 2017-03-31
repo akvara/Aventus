@@ -30,7 +30,6 @@ SQL;
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
-    // output data of each row
     while($row = $result->fetch_assoc()) {
         echo $row["x"] . "  " .  $row["y"] . "  " .  $row["car"] . PHP_EOL;
     }

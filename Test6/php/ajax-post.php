@@ -1,11 +1,11 @@
 <?php
 require('config.php');
 
-if($_POST['action'] == "add") {
+if($_POST['action'] === "add") {
     $conn = new mysqli($servername, $username, $password);
     $conn->select_db($database);
-    $nameVal = $_POST['name'];
-    $commentVal = $_POST['comment'];
+    $nameVal = $conn->real_escape_string($_POST['name']);
+    $commentVal = $conn->real_escape_string($_POST['comment']);
 
     $sql = "INSERT INTO $table (`name`, `text`, `date`) VALUES (\"$nameVal\", \"$commentVal\", NOW())";
 
@@ -18,19 +18,21 @@ if($_POST['action'] == "add") {
     $conn->close();
 }
 
-//if($_POST['action'] == "read") {
-//    $conn = new mysqli($servername, $username, $password);
-//    $conn->select_db($database);
-//
-//    $sql = "SELECT * FROM $table";
-//
-//    if ($conn->query($sql) === TRUE) {
-//        echo json_encode($conn->query($sql)->fetch_all());
-//    } else {
-//        echo "Error: " . $conn->error;
-//    }
-//
-//    $conn->close();
-//}
+if($_POST['action'] === "delete") {
+    $conn = new mysqli($servername, $username, $password);
+    $conn->select_db($database);
+
+    $idVal = $conn->real_escape_string($_POST['id']);
+
+    $sql = "DELETE FROM $table WHERE id=" . $idVal;
+
+    if ($conn->query($sql) === TRUE) {
+        echo "Deleted";
+    } else {
+        echo "Error: " . $conn->error;
+    }
+
+    $conn->close();
+}
 
 ?>
